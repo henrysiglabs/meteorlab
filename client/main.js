@@ -39,7 +39,6 @@ Template.firstTemplate.events({
 	}
 })
 
-
 Shapes.insert({x:200, y:50, border:'#123456', color:'#bada55'})
 
 
