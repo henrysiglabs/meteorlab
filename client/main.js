@@ -2,47 +2,12 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
+import './templates.html';
+import './templates.js';
 
-Template.firstTemplate.helpers({
-	shapeCount: function() {
-		return Shapes.find().count();
-	},
-	rawInsert: function(){
-		return "<div>raw html!</div>"
-	}
-})
-
-Shapes = new Mongo.Collection('shapes');
-Template.one.helpers({
-	svgShapes: function () {
-		return Shapes.find();
-	}
-});
-
-Template.firstTemplate.events({
-	'click svg': function (e,t) {
-		var xpos, ypos;
-		if(e.offsetX == undefined) {
-			xpos = e.pageX-$('#shapes').offset().left;
-			ypos = e.pageY-$('#shapes').offset().top;
-		} else {
-			xpos = e.offsetX;
-			ypos = e.offsetY;
-		}
-		choices = ['#bada55', '#000000', '#333333'],
-		color = Random.choice(choices),
-		border = Random.choice(choices);
-		Shapes.insert({x:xpos, y:ypos, border:border, color:color});
-	},
-	'dblclick': function(e,t) {
-		Meteor.call('resetShapes');
-	}
-})
-
-Shapes.insert({x:200, y:50, border:'#123456', color:'#bada55'})
+import '../collections/collections.js'
 
 
-MyCollection = new Mongo.Collection('myCollection');
 
 var myData = {
 	"_id": "JCLkSCzntZWQ49ofc",
