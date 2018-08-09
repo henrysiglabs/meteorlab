@@ -1,0 +1,63 @@
+<head>
+  <title>henry</title>
+</head>
+
+<body>
+  <h1>Henry's Ninja App</h1>
+  
+  {{> firstTemplate}}
+  
+  
+  <div id = "myContainer">
+  </div>
+  <br/><br/>
+      
+  {{> hello}}
+</body>
+
+<template name="firstTemplate">
+    <div id="title">shapes count: {{shapeCount}}</div>
+    <svg height="200" width="100%" id="shapes">
+        {{> one}}
+    </svg>
+    {{{rawInsert}}}
+</template>
+
+<template name="one">
+    {{#each svgShapes}}
+        <circle cx="100" cy="50" r="40" stroke="#ffc348" stroke-width="3" fill="#31be4f"/>
+    {{/each}}
+</template>
+
+
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name = "myNewTemplate">
+   <p>_id: {{id}}</p>
+   <p>array_index: {{array_index}}</p>
+   <p><b>fsm: </b></p>
+   <p>state: {{state}}</p>
+   <p>control should_run_background: {{should_run_background}}</p>
+   <p>control should_mask_data_tone_tx_eq: {{should_mask_data_tone_tx_eq}}</p>
+   <p>flags cheq_done_flag: {{cheq_done_flag}}</p>
+   <p>flags : {{cheq_onoff_flag}}</p>
+   <p>sto times_sto_estimated: {{times_sto_estimated}}</p>
+   <p>sto sto_estimated: {{sto_estimated}}</p>
+   <p><b>sfo: </b> </p>
+   <p>sfo_estimated: {{sfo_estimated}}</p>
+   <p>sfo_estimated_sent: {{sfo_estimated_sent}}</p>
+   <p>times_sfo_estimated: {{times_sfo_estimated}}</p>
+   <p>times_sfo_sent: {{times_sfo_sent}}</p>
+   <p>applied_sfo: {{applied_sfo}}</p>
+   <p><b>cfo: </b> </p>
+   <p>cfo_estimated: {{cfo_estimated}}</p>
+   <p>cfo_estimated_sent: {{cfo_estimated_sent}}</p>
+   <p>times_cfo_sent: {{times_cfo_sent}}</p>
+   <p>times_cfo_estimated: {{times_cfo_estimated}}</p>
+   <p>demod_est_common_phase: {{demod_est_common_phase}}</p>
+
+</template>
